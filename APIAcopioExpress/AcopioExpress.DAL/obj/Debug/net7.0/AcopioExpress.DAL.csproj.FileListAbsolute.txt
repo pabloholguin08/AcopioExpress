@@ -1,0 +1,15 @@
+C:\Users\yessi\Desktop\SENA\ProyectoFinal\ProyectoAcopioExpress\APIAcopioExpress\AcopioExpress.DAL\bin\Debug\net7.0\AcopioExpress.DAL.deps.json
+C:\Users\yessi\Desktop\SENA\ProyectoFinal\ProyectoAcopioExpress\APIAcopioExpress\AcopioExpress.DAL\bin\Debug\net7.0\AcopioExpress.DAL.dll
+C:\Users\yessi\Desktop\SENA\ProyectoFinal\ProyectoAcopioExpress\APIAcopioExpress\AcopioExpress.DAL\bin\Debug\net7.0\AcopioExpress.DAL.pdb
+C:\Users\yessi\Desktop\SENA\ProyectoFinal\ProyectoAcopioExpress\APIAcopioExpress\AcopioExpress.DAL\bin\Debug\net7.0\AcopioExpress.Model.dll
+C:\Users\yessi\Desktop\SENA\ProyectoFinal\ProyectoAcopioExpress\APIAcopioExpress\AcopioExpress.DAL\bin\Debug\net7.0\AcopioExpress.Model.pdb
+C:\Users\yessi\Desktop\SENA\ProyectoFinal\ProyectoAcopioExpress\APIAcopioExpress\AcopioExpress.DAL\obj\Debug\net7.0\AcopioExpress.DAL.csproj.AssemblyReference.cache
+C:\Users\yessi\Desktop\SENA\ProyectoFinal\ProyectoAcopioExpress\APIAcopioExpress\AcopioExpress.DAL\obj\Debug\net7.0\AcopioExpress.DAL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\yessi\Desktop\SENA\ProyectoFinal\ProyectoAcopioExpress\APIAcopioExpress\AcopioExpress.DAL\obj\Debug\net7.0\AcopioExpress.DAL.AssemblyInfoInputs.cache
+C:\Users\yessi\Desktop\SENA\ProyectoFinal\ProyectoAcopioExpress\APIAcopioExpress\AcopioExpress.DAL\obj\Debug\net7.0\AcopioExpress.DAL.AssemblyInfo.cs
+C:\Users\yessi\Desktop\SENA\ProyectoFinal\ProyectoAcopioExpress\APIAcopioExpress\AcopioExpress.DAL\obj\Debug\net7.0\AcopioExpress.DAL.csproj.CoreCompileInputs.cache
+C:\Users\yessi\Desktop\SENA\ProyectoFinal\ProyectoAcopioExpress\APIAcopioExpress\AcopioExpress.DAL\obj\Debug\net7.0\AcopioExpress.DAL.csproj.CopyComplete
+C:\Users\yessi\Desktop\SENA\ProyectoFinal\ProyectoAcopioExpress\APIAcopioExpress\AcopioExpress.DAL\obj\Debug\net7.0\AcopioExpress.DAL.dll
+C:\Users\yessi\Desktop\SENA\ProyectoFinal\ProyectoAcopioExpress\APIAcopioExpress\AcopioExpress.DAL\obj\Debug\net7.0\refint\AcopioExpress.DAL.dll
+C:\Users\yessi\Desktop\SENA\ProyectoFinal\ProyectoAcopioExpress\APIAcopioExpress\AcopioExpress.DAL\obj\Debug\net7.0\AcopioExpress.DAL.pdb
+C:\Users\yessi\Desktop\SENA\ProyectoFinal\ProyectoAcopioExpress\APIAcopioExpress\AcopioExpress.DAL\obj\Debug\net7.0\ref\AcopioExpress.DAL.dll

@@ -1,0 +1,14 @@
+C:\Users\yessi\Desktop\SENA\ProyectoFinal\ProyectoAcopioExpress\APIAcopioExpress\AcopioExpress.Model\bin\Debug\net7.0\AcopioExpress.Model.deps.json
+C:\Users\yessi\Desktop\SENA\ProyectoFinal\ProyectoAcopioExpress\APIAcopioExpress\AcopioExpress.Model\bin\Debug\net7.0\AcopioExpress.Model.runtimeconfig.json
+C:\Users\yessi\Desktop\SENA\ProyectoFinal\ProyectoAcopioExpress\APIAcopioExpress\AcopioExpress.Model\bin\Debug\net7.0\AcopioExpress.Model.dll
+C:\Users\yessi\Desktop\SENA\ProyectoFinal\ProyectoAcopioExpress\APIAcopioExpress\AcopioExpress.Model\bin\Debug\net7.0\AcopioExpress.Model.pdb
+C:\Users\yessi\Desktop\SENA\ProyectoFinal\ProyectoAcopioExpress\APIAcopioExpress\AcopioExpress.Model\obj\Debug\net7.0\AcopioExpress.Model.csproj.AssemblyReference.cache
+C:\Users\yessi\Desktop\SENA\ProyectoFinal\ProyectoAcopioExpress\APIAcopioExpress\AcopioExpress.Model\obj\Debug\net7.0\AcopioExpress.Model.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\yessi\Desktop\SENA\ProyectoFinal\ProyectoAcopioExpress\APIAcopioExpress\AcopioExpress.Model\obj\Debug\net7.0\AcopioExpress.Model.AssemblyInfoInputs.cache
+C:\Users\yessi\Desktop\SENA\ProyectoFinal\ProyectoAcopioExpress\APIAcopioExpress\AcopioExpress.Model\obj\Debug\net7.0\AcopioExpress.Model.AssemblyInfo.cs
+C:\Users\yessi\Desktop\SENA\ProyectoFinal\ProyectoAcopioExpress\APIAcopioExpress\AcopioExpress.Model\obj\Debug\net7.0\AcopioExpress.Model.csproj.CoreCompileInputs.cache
+C:\Users\yessi\Desktop\SENA\ProyectoFinal\ProyectoAcopioExpress\APIAcopioExpress\AcopioExpress.Model\obj\Debug\net7.0\AcopioExpress.Model.dll
+C:\Users\yessi\Desktop\SENA\ProyectoFinal\ProyectoAcopioExpress\APIAcopioExpress\AcopioExpress.Model\obj\Debug\net7.0\refint\AcopioExpress.Model.dll
+C:\Users\yessi\Desktop\SENA\ProyectoFinal\ProyectoAcopioExpress\APIAcopioExpress\AcopioExpress.Model\obj\Debug\net7.0\AcopioExpress.Model.pdb
+C:\Users\yessi\Desktop\SENA\ProyectoFinal\ProyectoAcopioExpress\APIAcopioExpress\AcopioExpress.Model\obj\Debug\net7.0\AcopioExpress.Model.genruntimeconfig.cache
+C:\Users\yessi\Desktop\SENA\ProyectoFinal\ProyectoAcopioExpress\APIAcopioExpress\AcopioExpress.Model\obj\Debug\net7.0\ref\AcopioExpress.Model.dll

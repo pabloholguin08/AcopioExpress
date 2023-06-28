@@ -1,0 +1,12 @@
+C:\Users\yessi\Desktop\SENA\ProyectoFinal\ProyectoAcopioExpress\APIAcopioExpress\AcopioExpress.DTO\bin\Debug\net7.0\AcopioExpress.DTO.deps.json
+C:\Users\yessi\Desktop\SENA\ProyectoFinal\ProyectoAcopioExpress\APIAcopioExpress\AcopioExpress.DTO\bin\Debug\net7.0\AcopioExpress.DTO.dll
+C:\Users\yessi\Desktop\SENA\ProyectoFinal\ProyectoAcopioExpress\APIAcopioExpress\AcopioExpress.DTO\bin\Debug\net7.0\AcopioExpress.DTO.pdb
+C:\Users\yessi\Desktop\SENA\ProyectoFinal\ProyectoAcopioExpress\APIAcopioExpress\AcopioExpress.DTO\obj\Debug\net7.0\AcopioExpress.DTO.csproj.AssemblyReference.cache
+C:\Users\yessi\Desktop\SENA\ProyectoFinal\ProyectoAcopioExpress\APIAcopioExpress\AcopioExpress.DTO\obj\Debug\net7.0\AcopioExpress.DTO.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\yessi\Desktop\SENA\ProyectoFinal\ProyectoAcopioExpress\APIAcopioExpress\AcopioExpress.DTO\obj\Debug\net7.0\AcopioExpress.DTO.AssemblyInfoInputs.cache
+C:\Users\yessi\Desktop\SENA\ProyectoFinal\ProyectoAcopioExpress\APIAcopioExpress\AcopioExpress.DTO\obj\Debug\net7.0\AcopioExpress.DTO.AssemblyInfo.cs
+C:\Users\yessi\Desktop\SENA\ProyectoFinal\ProyectoAcopioExpress\APIAcopioExpress\AcopioExpress.DTO\obj\Debug\net7.0\AcopioExpress.DTO.csproj.CoreCompileInputs.cache
+C:\Users\yessi\Desktop\SENA\ProyectoFinal\ProyectoAcopioExpress\APIAcopioExpress\AcopioExpress.DTO\obj\Debug\net7.0\AcopioExpress.DTO.dll
+C:\Users\yessi\Desktop\SENA\ProyectoFinal\ProyectoAcopioExpress\APIAcopioExpress\AcopioExpress.DTO\obj\Debug\net7.0\refint\AcopioExpress.DTO.dll
+C:\Users\yessi\Desktop\SENA\ProyectoFinal\ProyectoAcopioExpress\APIAcopioExpress\AcopioExpress.DTO\obj\Debug\net7.0\AcopioExpress.DTO.pdb
+C:\Users\yessi\Desktop\SENA\ProyectoFinal\ProyectoAcopioExpress\APIAcopioExpress\AcopioExpress.DTO\obj\Debug\net7.0\ref\AcopioExpress.DTO.dll

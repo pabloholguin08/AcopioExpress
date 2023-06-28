@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\AcopioExpress.API.props" />
+</Project>

@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AcopioExpress.DAL\AcopioExpress.DAL.csproj" />
+    <ProjectReference Include="..\AcopioExpress.DTO\AcopioExpress.DTO.csproj" />
+    <ProjectReference Include="..\AcopioExpress.Model\AcopioExpress.Model.csproj" />
+    <ProjectReference Include="..\AcopioExpress.Utility\AcopioExpress.Utility.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,17 @@
+C:\Users\yessi\Desktop\SENA\ProyectoFinal\ProyectoAcopioExpress\APIAcopioExpress\AcopioExpress.Utility\bin\Debug\net7.0\AcopioExpress.Utility.deps.json
+C:\Users\yessi\Desktop\SENA\ProyectoFinal\ProyectoAcopioExpress\APIAcopioExpress\AcopioExpress.Utility\bin\Debug\net7.0\AcopioExpress.Utility.dll
+C:\Users\yessi\Desktop\SENA\ProyectoFinal\ProyectoAcopioExpress\APIAcopioExpress\AcopioExpress.Utility\bin\Debug\net7.0\AcopioExpress.Utility.pdb
+C:\Users\yessi\Desktop\SENA\ProyectoFinal\ProyectoAcopioExpress\APIAcopioExpress\AcopioExpress.Utility\bin\Debug\net7.0\AcopioExpress.DTO.dll
+C:\Users\yessi\Desktop\SENA\ProyectoFinal\ProyectoAcopioExpress\APIAcopioExpress\AcopioExpress.Utility\bin\Debug\net7.0\AcopioExpress.Model.dll
+C:\Users\yessi\Desktop\SENA\ProyectoFinal\ProyectoAcopioExpress\APIAcopioExpress\AcopioExpress.Utility\bin\Debug\net7.0\AcopioExpress.DTO.pdb
+C:\Users\yessi\Desktop\SENA\ProyectoFinal\ProyectoAcopioExpress\APIAcopioExpress\AcopioExpress.Utility\bin\Debug\net7.0\AcopioExpress.Model.pdb
+C:\Users\yessi\Desktop\SENA\ProyectoFinal\ProyectoAcopioExpress\APIAcopioExpress\AcopioExpress.Utility\obj\Debug\net7.0\AcopioExpress.Utility.csproj.AssemblyReference.cache
+C:\Users\yessi\Desktop\SENA\ProyectoFinal\ProyectoAcopioExpress\APIAcopioExpress\AcopioExpress.Utility\obj\Debug\net7.0\AcopioExpress.Utility.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\yessi\Desktop\SENA\ProyectoFinal\ProyectoAcopioExpress\APIAcopioExpress\AcopioExpress.Utility\obj\Debug\net7.0\AcopioExpress.Utility.AssemblyInfoInputs.cache
+C:\Users\yessi\Desktop\SENA\ProyectoFinal\ProyectoAcopioExpress\APIAcopioExpress\AcopioExpress.Utility\obj\Debug\net7.0\AcopioExpress.Utility.AssemblyInfo.cs
+C:\Users\yessi\Desktop\SENA\ProyectoFinal\ProyectoAcopioExpress\APIAcopioExpress\AcopioExpress.Utility\obj\Debug\net7.0\AcopioExpress.Utility.csproj.CoreCompileInputs.cache
+C:\Users\yessi\Desktop\SENA\ProyectoFinal\ProyectoAcopioExpress\APIAcopioExpress\AcopioExpress.Utility\obj\Debug\net7.0\AcopioExpress.Utility.csproj.CopyComplete
+C:\Users\yessi\Desktop\SENA\ProyectoFinal\ProyectoAcopioExpress\APIAcopioExpress\AcopioExpress.Utility\obj\Debug\net7.0\AcopioExpress.Utility.dll
+C:\Users\yessi\Desktop\SENA\ProyectoFinal\ProyectoAcopioExpress\APIAcopioExpress\AcopioExpress.Utility\obj\Debug\net7.0\refint\AcopioExpress.Utility.dll
+C:\Users\yessi\Desktop\SENA\ProyectoFinal\ProyectoAcopioExpress\APIAcopioExpress\AcopioExpress.Utility\obj\Debug\net7.0\AcopioExpress.Utility.pdb
+C:\Users\yessi\Desktop\SENA\ProyectoFinal\ProyectoAcopioExpress\APIAcopioExpress\AcopioExpress.Utility\obj\Debug\net7.0\ref\AcopioExpress.Utility.dll
