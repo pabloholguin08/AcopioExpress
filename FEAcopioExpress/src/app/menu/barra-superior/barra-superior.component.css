@@ -1,0 +1,18 @@
+
+.icono-perfil{
+    height: 40px;
+    width: 40px;
+}
+.nav-item{
+    margin-top: 5px;
+}
+.nombre-usuario{
+    position: relative;
+    left: 100px;
+
+}
+.rol-usuario{
+    position: relative;
+    top: 23px;
+}
+

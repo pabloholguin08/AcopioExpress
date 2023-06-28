@@ -1,0 +1,67 @@
+<div class="wrapper">
+  <app-menu-lateral></app-menu-lateral>
+  <!-- Page Content  -->
+  <div id="content">
+    <app-barra-superior></app-barra-superior>
+    <div class="container">
+      <div class="row text-center">
+        <h1>Editar Produccion</h1>
+      </div>
+      <div *ngIf="dataLoaded">
+        <form [formGroup]="editarProduccionForm" (ngSubmit)="actualizarProduccion()">
+          <div class="row ms-5">
+            <div class="col-6">
+              <div class="row">
+                <div class="col-12">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <label for="input1">Nombre</label>
+                      <select class="form-select" formControlName="idPersona">
+                        <option *ngFor="let item of listaPersona" value="{{item.idPersona}}">{{item.nombres}}
+                          {{item.apellidos}}</option>
+                      </select>
+                    </div>
+                    <div class="col-md-6">
+                      <label for="input1">Día Ingreso Producto</label>
+                      <input type="date" class="form-control" formControlName="diaIngresoProducto">
+                    </div>
+                  </div>
+                </div>
+                <div class="mt-2">
+                  <label for="input1">Observaciones</label>
+                  <textarea class="form-control" id="exampleFormControlTextarea1" formControlName="observaciones"
+                    maxlength="500" rows="6"></textarea>
+                </div>
+              </div>
+              <div class="col-12 mt-2">
+                <div class="row">
+                  <div class="col-md-6">
+                    <label for="input2">Cantidad</label>
+                    <input type="number" class="form-control" formControlName="cantidad">
+                  </div>
+                  <div class="col-md-6">
+                    <label for="input2">Precio Produccion</label>
+                    <input type="number" class="form-control" formControlName="precioProducto">
+                  </div>
+                </div>
+              </div>
+              <div class="row mt-3 d-flex justify-content-center">
+                <div class="col-6 d-grid gap-2"> <button class="btn btn-primary boton-comun" type="submit">Editar
+                    Produccion</button></div>
+                <div class="col-6 d-grid gap-2"><a class="btn btn btn-secondary" href="/produccion">Cancelar</a></div>
+                <div class="col-3"></div>
+                <div class="col-3"></div>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="d-flex justify-content-center">
+                <img src="../../../assets/img/carrito-de-supermercado.png" width="40%" height="50%" class="">
+              </div>
+            </div>
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

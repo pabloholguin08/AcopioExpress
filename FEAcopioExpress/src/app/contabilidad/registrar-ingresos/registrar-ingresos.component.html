@@ -1,0 +1,228 @@
+<div class="wrapper">
+  <app-menu-lateral></app-menu-lateral>
+  <!-- Page Content  -->
+  <div id="content">
+    <app-barra-superior></app-barra-superior>
+    <br>
+    <div class="container">
+      <div class="row">
+        <div class="col-7 d-flex justify-content-start">
+          <div class="row me-3">
+            <div class="col-12">
+              <label for="fechaInicio">Fecha Inicio</label>
+              <input type="date" class="form-control" id="fechaInicio" [(ngModel)]="fechaInicio" value="2023-01-01">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12">
+              <label for="fechaFin">Fecha Fin</label>
+              <input type="date" class="form-control" id="fechaFin" [(ngModel)]="fechaFin" [defaultValue]="31/12/2023">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12 mt-3">
+              <button type="button"
+                class="btn btn-lg btn-primary menu-text btn-init-session mx-3 boton-comun"  (click)="funciones()">Buscar</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-5 d-flex justify-content-center align-items-center">
+          <h3>Balance: <p style="color: blue; font-weight: bold;">{{balance | currency:''}}</p></h3>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="row">
+          <div class="row">
+            <div class="col-12 mt-2 d-flex justify-content-center">
+              <h2>Ingresos</h2>
+            </div>
+          </div>
+          <div class="col-8 border">
+              <ngx-charts-advanced-pie-chart [view]="view2" scheme="cool" [results]="single2" [gradient]="gradient2"
+              (select)="onSelect2($event)" (activate)="onActivate2($event)" (deactivate)="onDeactivate2($event)">
+              </ngx-charts-advanced-pie-chart>
+          </div>
+          <div class="col-4 align-items-center justify-content-center d-flex">
+            <div class="d-grid gap-2">
+              <button class="btn btn-lg btn-success menu-text btn-init-session ps-5 pe-5" data-bs-target="#modalIngreso"
+            data-bs-toggle="modal" >Ingresos</button>
+              <button (click)="pdfIngresos()" class="btn btn-lg btn-success menu-text btn-init-session boton-comun">Exportar PDF</button>
+            </div>
+          </div>
+
+          <div class="row mt-4">
+            <div class="col-12">
+              <table class="table " id="tablaIngresos" #tablaIngresos>
+                <thead>
+                  <tr>
+                    <th scope="col">Acopio</th>
+                    <th scope="col">Ganancia Insumos</th>
+                    <th scope="col">Ganancia Producción</th>
+                    <th scope="col">Fecha Inicial Ingresos</th>
+                    <th scope="col">Fecha Final Ingresos</th>
+                    <th scope="col">Total de Ingresos</th>
+                    <th *ngIf="mostrarColumna" scope="col">Acciones</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let item of listaIngresos">
+                    <td>{{item.nombreAcopi}}</td>
+                    <td>{{item.totalGananciaInsumos | currency:''}}</td>
+                    <td>{{item.totalGananciaProduccion | currency:''}}</td>
+                    <td>{{item.fechaInicailIngresos | date:'dd/MM/yyyy'}}</td>
+                    <td>{{item.fechaFinalIngresosLiquidacion | date: 'dd/MM/yyyy'}}</td>
+                    <td>{{item.totalIngresos | currency:''}}</td  >
+                    <td *ngIf="mostrarColumna">
+                      <a class="me-2" (click)="eliminarAlertaIngreso(item.idIngresosAcopio)" style="color:rgb(255, 255, 255)">
+                        <img src="../../../assets/img/borrar.png" alt="Editar"></a>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-12  mt-5 d-flex justify-content-center">
+              <h2>Egresos</h2>
+            </div>
+          </div>
+          <div class="col-8 border">
+            <ngx-charts-advanced-pie-chart [view]="view2" scheme="fire" [results]="single" [gradient]="gradient"
+              (select)="onSelect($event)" (activate)="onActivate($event)" (deactivate)="onDeactivate($event)">
+            </ngx-charts-advanced-pie-chart>
+          </div>
+          <div class="col-4 align-items-center justify-content-center d-flex">
+            <div class="d-grid gap-2">
+              <button class="btn btn-lg btn-danger menu-text btn-init-session ps-5 pe-5" data-bs-target="#modalEgreso"
+                  data-bs-toggle="modal">Egresos</button>
+              <button (click)="pdfEgresos()" class="btn btn-lg btn-success menu-text btn-init-session boton-comun">Exportar PDF</button>
+            </div>
+          </div>
+          <div class="row mt-4">
+            <div class="col-12 ">
+              <table class="table " id="tablaEgresos" #tablaEgresos>
+                <thead>
+                  <tr>
+                    <th scope="col">Acopio</th>
+                    <th scope="col">Arriendo</th>
+                    <th scope="col">Nominas</th>
+                    <th scope="col">Servicios</th>
+                    <th scope="col">Liquidaciones</th>
+                    <th scope="col">Gastos Extras</th>
+                    <th scope="col">Total</th>
+                    <th *ngIf="mostrarColumna" scope="col">Acciones</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let item of listaEgresos">
+                    <td>{{item.nombreAcopi}}</td>
+                    <td>{{item.arriendo | currency:''}}</td>
+                    <td>{{item.sumatoriaNominas | currency:''}}</td>
+                    <td>{{item.servicios | currency:''}}</td>
+                    <td>{{item.sumatoriaLiquidacion | currency:''}}</td>
+                    <td>{{item.gastosExtras | currency:''}}</td>
+                    <td>{{item.totalEgresos | currency:''}}</td>
+                    <td *ngIf="mostrarColumna">
+                      <a class="me-2" (click)="eliminarAlertaEgreso(item.idEgresosAcopio)" style="color:rgb(255, 255, 255)">
+                        <img src="../../../assets/img/borrar.png" alt="Editar"></a>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="modalEgreso" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" #modalEgresos>
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Crear Egreso</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body ">
+        <form [formGroup]="addEgresosForm" (Submit)="crearEgreso()" id="idCrearEgreso">
+          <div class="row">
+            <div class="col-6">
+              <div class="row">
+                <div>
+                  <label for="input1">Acopio</label>
+                  <select class="form-select" formControlName="idAcopio">
+                    <option value="1">AcopiMilk</option>
+                  </select>
+                </div>
+                <div>
+                  <label for="input2">Arriendo</label>
+                  <input type="number" class="form-control" formControlName="arriendo">
+                </div>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="row">
+                <div>
+                  <label for="input1">Servicios</label>
+                  <input type="number" class="form-control" formControlName="servicios">
+                </div>
+                <div>
+                  <label for="input2">Gastos Extras</label>
+                  <input type="number" class="form-control" formControlName="gastosExtras">
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+        <div class="row mt-2">
+          <div class="col-6">
+            <label for="input1">Fecha Inicio</label>
+            <input type="date" class="form-control" id="fechaInicioEgreso" [(ngModel)]="fechaInicioEgreso">
+          </div>
+          <div class="col-6">
+            <label for="input1">Fecha Fin</label>
+            <input type="date" class="form-control"  id="fechaFinalEgreso" [(ngModel)]="fechaFinalEgreso">
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        <button class="btn btn-primary boton-comun" form="idCrearEgreso" type="submit" (click)="crearEgreso()"
+          data-bs-dismiss="modal">Crear Egreso</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="modalIngreso" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" #modalIngresos>
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Crear Ingresos</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body ">
+          <div class="row">
+            <div class="col-6">
+                  <label for="input1">Fecha Inicio</label>
+                  <input type="date" class="form-control" id="fechaIngresoIngreso" [(ngModel)]="fechaIngresoIngreso">
+            </div>
+            <div class="col-6">
+                  <label for="input1">Fecha Fin</label>
+                  <input type="date" class="form-control" id="fechaFinalIngreso" [(ngModel)]="fechaFinalIngreso">
+            </div>
+          </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        <button class="btn btn-primary boton-comun" form="idCrearEgreso" type="submit" (click)="crearIngreso()"
+          data-bs-dismiss="modal">Crear Ingresos</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,76 @@
+<div class="wrapper">
+  <app-menu-lateral></app-menu-lateral>
+  <!-- Page Content  -->
+  <div id="content">
+    <app-barra-superior></app-barra-superior>
+    <div class="container">
+      <div class="row text-center">
+        <h1>Editar Persona</h1>
+      </div>
+      <div *ngIf="dataLoaded">
+        <form [formGroup]="editarPersonaForm" (ngSubmit)="actualizarPersona()">
+          <div class="row ms-5">
+            <div class="col-6">
+              <div class="row">
+                <div class="mt-2">
+                  <label for="input1">Nombre</label>
+                  <input type="text" class="form-control" formControlName="nombres">
+                </div>
+                <div class="mt-2">
+                  <label for="input2">Apellido</label>
+                  <input type="text" class="form-control" formControlName="apellidos">
+                </div>
+                <div class="mt-2">
+                  <label for="input1">Cedula</label>
+                  <input type="number" class="form-control" formControlName="cedula">
+                </div>
+              </div>
+              <div class="mt-2">
+                <label for="input1">Dirección</label>
+                <input type="text" class="form-control" formControlName="direccion">
+              </div>
+              <div class="mt-2">
+                <label for="input2">Telefono</label>
+                <input type="text" class="form-control" formControlName="telefono">
+              </div>
+              <div class="row mt-3">
+                <div class="col-4">
+                  <label for="input1">Rol</label>
+                  <select class="form-select" formControlName="idRol">
+                    <option value="3">Productor</option>
+                    <option value="2">Empleado</option>
+                  </select>
+                </div>
+                <div class="col-4">
+                  <label for="input2">Tipo de producto</label>
+                  <select class="form-select" formControlName="idTipoProducto">
+                    <option value="1">Café</option>
+                    <option value="2">Coca</option>
+                  </select>
+                </div>
+                <div class="col-4">
+                  <label for="input2">Acopio</label>
+                  <select class="form-select" formControlName="idAcopio">
+                    <option value="1">San Julian</option>
+                  </select>
+                </div>
+              </div>
+              <div class="row mt-3 d-flex justify-content-center">
+                <div class="col-6 d-grid gap-2"> <button class="btn btn-primary boton-comun" type="submit">Editar
+                    Persona</button></div>
+                <div class="col-6 d-grid gap-2"><a class="btn btn btn-secondary" href="/persona">Cancelar</a></div>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="d-flex justify-content-center align-self-center">
+                <img src="../../../assets/img/editar.png" width="40%" height="40%" class="">
+              </div>
+
+            </div>
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

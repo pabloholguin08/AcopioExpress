@@ -1,0 +1,202 @@
+<div class="wrapper">
+  <app-menu-lateral></app-menu-lateral>
+  <!-- Page Content  -->
+  <div id="content">
+    <app-barra-superior></app-barra-superior>
+    <div class="container">
+      <div class="row ">
+        <div class="col-6 d-flex justify-content-end">
+          <h2>Generar una compra de produccion</h2>
+        </div>
+        <div class="col-6 d-flex justify-content-end">
+          <button (click)="onImprimir()" type="button"
+            class="btn btn-lg btn-primary menu-text btn-init-session boton-comun" style="background-color: #31C941; border: #31C941;">Exportar a PDF</button>
+          <button type="button" class="btn btn-lg btn-primary menu-text btn-init-session mx-3 boton-comun"
+            data-bs-target="#exampleModal" data-bs-toggle="modal">Ver Historial</button>
+          <button type="button" class="btn btn-lg btn-primary menu-text btn-init-session boton-comun"
+            data-bs-target="#produccionInactiva" data-bs-toggle="modal">Produccion Inactiva</button>
+        </div>
+      </div>
+    </div>
+    <br>
+    <div class="container mt-5">
+      <form [formGroup]="addProduccionForm" (Submit)="crearProduccion()" id="idCrearProduccion">
+        <div class="row ms-5">
+          <div class="col-6">
+            <div class="row">
+              <div class="col-12">
+                <div class="row">
+                  <div class="col-md-6">
+                    <label for="input1">Nombre</label>
+                    <select class="form-select" formControlName="idPersona">
+                      <option *ngFor="let item of listaPersona" value="{{item.idPersona}}">{{item.nombres}}
+                        {{item.apellidos}}</option>
+                    </select>
+                  </div>
+                  <div class="col-md-6">
+                    <label for="input1">Día Ingreso Producto</label>
+                    <input type="date" class="form-control" formControlName="diaIngresoProducto">
+                  </div>
+                </div>
+              </div>
+              <div>
+                <label for="input1">Observaciones</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" formControlName="observaciones"
+                  maxlength="500" rows="6"></textarea>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <div class="row">
+                  <div class="col-md-6">
+                    <label for="input2">Cantidad</label>
+                    <input type="number" class="form-control" formControlName="cantidad">
+                  </div>
+                  <div class="col-md-6">
+                    <label  for="input2">Precio Produccion</label>
+                    <input type="number" class="form-control" formControlName="precioProducto" >
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row mt-3">
+              <div class="col-md-12 d-grid gap-2 "><button class="btn btn-primary boton-comun " form="idCrearProduccion"
+                  type="submit" (click)="crearProduccion()">Ingresar Produccion</button></div>
+            </div>
+          </div>
+          <div class="col-6 ">
+            <div class="d-flex justify-content-center align-self-center">
+              <img src="../../../assets/img/lista-de-verificacion.png" width="40%" height="40%" class="">
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-fullscreen">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Historial de Produccion</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body ">
+            <div class="row">
+              <div class="col-12 d-flex justify-content-start">
+                <div class="row me-3">
+                  <div class="col-12">
+                    <label for="fechaInicio">Fecha Inicio</label>
+                    <input type="date" class="form-control" id="fechaInicio" [(ngModel)]="fechaInicio1"  value="2023-01-01">
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-12">
+                    <label for="fechaFin2">Fecha Fin</label>
+                    <input type="date" class="form-control" id="fechaFin" [(ngModel)]="fechaFin2" >
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-12 mt-3">
+                    <button type="button"
+                      class="btn btn-lg btn-primary menu-text btn-init-session mx-3 boton-comun"  (click)="ListaProduccion()">Buscar</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row mt-5">
+              <div class="col-12">
+                <table class="table" #tablaProduccion>
+                  <thead>
+                    <tr>
+                      <th scope="col">Dia Ingreso Produccion</th>
+                      <th scope="col">Cantidad</th>
+                      <th scope="col">Precio Producto</th>
+                      <th scope="col">Observaciones</th>
+                      <th scope="col">Valor Produccion</th>
+                      <th scope="col">Nombres</th>
+                      <th scope="col">Apellidos</th>
+                      <th *ngIf="mostrarColumna" scope="col">Acciones</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let item of listaProduccion">
+                      <td>{{item.diaIngresoProducto | date:'dd/MM/yyyy'}}</td>
+                      <td>{{item.cantidad}}</td>
+                      <td>{{item.precioProducto | currency: ''}}</td>
+                      <td>{{item.observaciones}}</td>
+                      <td>{{item.valorProducto | currency: ''}}</td>
+                      <td>{{item.nombres}}</td>
+                      <td>{{item.apellidos}}</td>
+                      <td *ngIf="mostrarColumna">
+                        <a data-bs-dismiss="modal" class="mx-3" (click)="eliminarProduccion(item.idProduccion)"
+                          style="color:rgb(255, 255, 255)"> <img src="../../../assets/img/borrar.png" alt="Editar"></a>
+                        <a href="/produccion/editar/{{item.idProduccion}}" style="color:rgb(255, 254, 254)"> <img
+                            src="../../../assets/img/lapiz.png" alt="Editar"></a>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="produccionInactiva" tabindex="-1" aria-labelledby="exampleModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog modal-fullscreen">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Producción Inactiva</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body ">
+            <div class="row mt-5">
+              <div class="col-12">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th scope="col">Dia Ingreso Produccion</th>
+                      <th scope="col">Cantidad</th>
+                      <th scope="col">Precio Producto</th>
+                      <th scope="col">Observaciones</th>
+                      <th scope="col">Valor Produccion</th>
+                      <th scope="col">Nombres</th>
+                      <th scope="col">Apellidos</th>
+                      <th scope="col">Acciones</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let item of listaProduccionInactiva">
+                      <td>{{item.diaIngresoProducto | date:'dd/MM/yyyy'}}</td>
+                      <td>{{item.cantidad}}</td>
+                      <td>{{item.precioProducto}}</td>
+                      <td>{{item.observaciones}}</td>
+                      <td>{{item.valorProducto}}</td>
+                      <td>{{item.nombres}}</td>
+                      <td>{{item.apellidos}}</td>
+                      <td>
+                        <a href="/produccion/recuperar/{{item.idProduccion}}" style="color:rgb(255, 254, 254)"> <img
+                            src="../../../assets/img/lapiz.png" alt="Editar"></a>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>

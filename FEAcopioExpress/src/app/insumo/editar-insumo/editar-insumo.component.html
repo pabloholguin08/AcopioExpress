@@ -1,0 +1,58 @@
+<div class="wrapper">
+  <app-menu-lateral></app-menu-lateral>
+  <!-- Page Content  -->
+  <div id="content">
+    <app-barra-superior></app-barra-superior>
+    <div class="container">
+      <div class="row text-center">
+        <h1>Editar Insumo</h1>
+    </div>
+    <div *ngIf="dataLoaded">
+      <form [formGroup]="editarInsumoForm" (ngSubmit)="actualizarInsumo()">
+        <div class="row">
+          <div class="col-6">
+            <div class="row">
+              <div>
+                <label for="input1">Nombre Insumo</label>
+                <input type="text" class="form-control" formControlName="nombreInsumo">
+              </div>
+              <div>
+                <label for="input2">Descripcion</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" formControlName="descripcion" maxlength="500" rows="6"></textarea>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-5">
+                <label for="input1">Valor Unitario Venta</label>
+                <input type="number" class="form-control" formControlName="valorUnitarioVenta">
+              </div>
+              <div class="col-md-2">
+                <label for="input2">Stock</label>
+                <input type="text" class="form-control" formControlName="stock">
+              </div>
+              <div class="col-md-5">
+                <label for="input1">Valor Unitario Compra</label>
+                <input type="number" class="form-control" formControlName="valorUnitarioCompra">
+              </div>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="d-flex justify-content-center">
+              <img src="../../../assets/img/suministro.png" width="40%" height="40%" class="">
+            </div>
+          </div>
+        </div>
+
+        <div class="row mt-3 d-flex justify-content-center">
+          <div class="col-3 d-grid gap-2" > <button class="btn btn-primary boton-comun" type="submit">Editar Insumo</button></div>
+          <div class="col-3 d-grid gap-2"><a class="btn btn-secondary me-2" href="/insumo">Cancelar</a></div>
+          <div class="col-3"></div>
+          <div class="col-3"></div>
+        </div>
+
+      </form>
+
+    </div>
+    </div>
+  </div>
+</div>

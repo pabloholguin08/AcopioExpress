@@ -1,0 +1,84 @@
+<div class="wrapper">
+  <app-menu-lateral></app-menu-lateral>
+  <!-- Page Content  -->
+  <div id="content">
+    <app-barra-superior></app-barra-superior>
+    <div class="container">
+      <div class="row ">
+        <div class="col-8 d-flex justify-content-end">
+          <h2>Generar una venta de insumos</h2>
+        </div>
+        <div class="col-4 d-flex justify-content-end">
+          <a href="/insumo/historial"
+            class="btn btn-lg btn-primary menu-text btn-init-session me-2 boton-comun">Historial
+            ventas</a>
+        </div>
+      </div>
+
+
+      <br>
+      <div class=" ms-5">
+        <form [formGroup]="addVentaForm" (Submit)="crearVenta()" id="idCrearInsumo">
+          <div class="row">
+            <div class="col-6">
+              <div class="row">
+                <div class="col-md-6">
+                  <label for="input1">Tipo de Pago</label>
+                  <select class="form-select" formControlName="idTipoPago">
+                    <option value="1">Contado</option>
+                    <option value="2">Fiado</option>
+                  </select>
+                </div>
+                <div class="col-md-6">
+                  <label for="input1">Fecha Venta</label>
+                  <input type="date" class="form-control" formControlName="fechaRegistro">
+                </div>
+                <div class="mt-2">
+                  <label for="input1">Nombre Productor</label>
+                  <select class="form-select" formControlName="idPersona">
+                    <option *ngFor="let item of listaPersona" value="{{item.idPersona}}">{{item.nombres}}
+                      {{item.apellidos}}
+                    </option>
+                  </select>
+                </div>
+              </div>
+              <div class="mt-2">
+                <label for="input1">Observaciones</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" formControlName="observacion"
+                  maxlength="60" rows="6"></textarea>
+              </div>
+              <div class="row mt-2">
+                <div class="col-12">
+                  <div class="row" [formGroup]="addDetalle">
+                    <div class="col-md-8">
+                      <label for="input1">Insumo</label>
+                      <select class="form-select" formControlName="idInsumo" (change)="actualizarPrecio()">
+                        <option *ngFor="let item of listaInsumo" [value]="item.idInsumo">{{ item.nombreInsumo}} -
+                          ${{item.valorUnitarioVenta}}
+                        </option>
+                      </select>
+                    </div>
+                    <div class="col-md-4">
+                      <label for="input2">Cantidad</label>
+                      <input type="number" class="form-control" formControlName="cantidad" [(ngModel)]="cantidad">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-6 ">
+              <div class="d-flex justify-content-center align-self-center" style="margin-top: 15%;">
+                <img src="../../../assets/img/suministro.png" width="40%" height="40%" class="">
+              </div>
+            </div>
+          </div>
+        </form>
+        <div class="row mt-5">
+          <div class="col-md-6 d-grid gap-2 ">
+            <button class="btn btn-primary boton-comun " form="idCrearProduccion" type="submit"
+              (click)="crearVenta()">Ingresar Venta</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

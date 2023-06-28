@@ -1,0 +1,118 @@
+<div class="wrapper">
+  <app-menu-lateral></app-menu-lateral>
+  <!-- Page Content  -->
+  <div id="content">
+    <app-barra-superior></app-barra-superior>
+    <div class="container">
+      <div class="row">
+        <div class="col-6 d-flex justify-content-end">
+          <h2>Listado de Nominas</h2>
+        </div>
+        <div class="col-6 d-flex justify-content-end">
+          <button type="button" (click)="imprimir()" style="background-color: #31C941; border: #31C941;" class="btn btn-lg btn-primary menu-text btn-init-session boton-comun mx-3">Exportar a
+            PDF</button>
+          <button type="button" class="btn btn-lg btn-primary menu-text btn-init-session boton-comun"
+            data-bs-target="#exampleModal" data-bs-toggle="modal">Nueva Nomina</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row mt-5">
+        <div class="col-12">
+          <table class="table" #tablaNomina>
+            <thead>
+              <tr>
+                <th scope="col">Nombre</th>
+                <th scope="col">Apellido</th>
+                <th scope="col">Salario</th>
+                <th scope="col">Fecha de Pago</th>
+                <th  style="text-align: center;" scope="col" *ngIf="mostrarColumna">Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of listaNomina">
+                <td>{{item.nombres}}</td>
+                <td>{{item.apellidos}}</td>
+                <td>{{item.salario | currency:''}}</td>
+                <td>{{item.fechaPago | date: 'dd/MM/yyyy'}}</td>
+                <td  style="text-align: center;" *ngIf="mostrarColumna">
+                  <a  (click)="eliminarNomina(item.idNomina)"  style="color:rgb(255, 255, 255)" class="mx-2"><img
+                      src="../../../assets/img/borrar.png" alt=""></a>
+                  <a href="/nomina/editar/{{item.idNomina}}" style="color:rgb(255, 254, 254)" class="mx-2"> <img
+                      src="../../../assets/img/lapiz.png" alt=""></a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <table class="table" #tablaNomina id="tablaExcel" style="visibility: hidden;">
+            <thead>
+              <tr>
+                <th scope="col">Nombre</th>
+                <th scope="col">Apellido</th>
+                <th scope="col">Salario</th>
+                <th scope="col">Fecha de Pago</th>
+
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of listaNomina">
+                <td>{{item.nombres}}</td>
+                <td>{{item.apellidos}}</td>
+                <td>{{item.salario}}</td>
+                <td>{{item.fechaPago | date: 'dd/MM/yyyy'}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Crear Nomina</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body ">
+          <form [formGroup]="addNominaForm" (Submit)="crearNomina()" id="idCrearNomina">
+            <div class="row">
+              <div class="col-6">
+                <div class="row">
+                  <div>
+                    <label for="input1">Nombre</label>
+                    <select class="form-select" formControlName="idPersona">
+                      <option *ngFor="let item of listaPersonas" value="{{item.idPersona}}">{{item.nombres}}
+                        {{item.apellidos}}</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label for="input2">Fecha de Pago</label>
+                    <input type="date" class="form-control" formControlName="fechaPago">
+                  </div>
+                </div>
+                <div class="col">
+                  <label for="input1">Salario</label>
+                  <input type="number" class="form-control" formControlName="salario">
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="d-flex justify-content-center align-self-center">
+                  <img src="../../../assets/img/salario.png" width="40%" height="70%" class="mt-4">
+                </div>
+              </div>
+            </div>
+
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          <button class="btn btn-primary boton-comun" form="idCrearNomina" type="submit" (click)="crearNomina()"
+            data-bs-dismiss="modal">Crear Nomina</button>
+        </div>
+      </div>
+    </div>
+  </div>

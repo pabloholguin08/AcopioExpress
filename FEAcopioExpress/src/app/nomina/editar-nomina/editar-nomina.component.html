@@ -1,0 +1,51 @@
+<div class="wrapper">
+  <app-menu-lateral></app-menu-lateral>
+  <!-- Page Content  -->
+  <div id="content">
+    <app-barra-superior></app-barra-superior>
+    <div class="container">
+      <div class="row text-center">
+        <h1>Editar Persona</h1>
+      </div>
+      <div *ngIf="dataLoaded">
+        <form [formGroup]="editarNominaForm" (ngSubmit)="actualizarNomina()">
+          <div class="row ms-5">
+            <div class="col-6">
+              <div class="row">
+                <div class="col-12 mt-1">
+                  <div>
+                    <label for="input1">Nombre</label>
+                    <select class="form-select" formControlName="idPersona">
+                      <option *ngFor="let item of listaPersonas" value="{{item.idPersona}}">{{item.nombres}}
+                        {{item.apellidos}}</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-12 mt-2">
+                  <div>
+                    <label for="input2">Fecha de Pago</label>
+                    <input type="date" class="form-control" formControlName="fechaPago">
+                  </div>
+                </div>
+                <div class="col-12 mt-2">
+                  <label for="input1">Salario</label>
+                  <input type="number" class="form-control" formControlName="salario">
+                </div>
+              </div>
+              <div class="row mt-3 d-flex justify-content-center">
+                <div class="col-6 d-grid gap-2"> <button class="btn btn-primary boton-comun" type="submit">Editar
+                    Persona</button></div>
+                <div class="col-6 d-grid gap-2"><a class="btn btn btn-secondary" href="/nomina">Cancelar</a></div>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="d-flex justify-content-center">
+                <img src="../../../assets/img/salario.png" width="25%" height="25%" class="mt-4">
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

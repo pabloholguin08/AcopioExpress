@@ -1,0 +1,140 @@
+<div class="wrapper">
+  <app-menu-lateral></app-menu-lateral>
+  <!-- Page Content  -->
+  <div id="content">
+    <app-barra-superior></app-barra-superior>
+
+    <div class="container">
+      <div class="row ">
+        <div class="col-6 d-flex justify-content-end">
+          <h2>Listado de Personas</h2>
+        </div>
+        <div class="col-6 d-flex justify-content-end">
+          <button type="button" (click)="onImprimir()"
+            class="btn btn-lg btn-primary menu-text btn-init-session boton-comun" style="background-color: #31C941; border: #31C941;">Exportar a pdf</button>
+          <button type="button" class="btn btn-lg btn-primary menu-text btn-init-session mx-3 boton-comun"
+            data-bs-target="#exampleModal" data-bs-toggle="modal">Nuevo Usuario</button>
+          <a class="btn btn-lg btn-primary menu-text btn-init-session boton-comun"
+            href="/persona/inactivosPersonas">Listar Inactivos</a>
+        </div>
+      </div>
+    </div>
+
+    <br>
+
+    <div class="container">
+      <div class="row mt-5">
+        <div class="col-12">
+          <table class="table " id="tablaPersona" #tablaPersona>
+            <thead>
+              <tr>
+                <th scope="col">Cedula</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Apellido</th>
+                <th scope="col">Telefono</th>
+                <th scope="col">Direccion</th>
+                <th scope="col">Acopio</th>
+                <th scope="col">Tipo Producto</th>
+                <th scope="col">Rol</th>
+                <th *ngIf="mostrarColumna" scope="col">Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of listaPersona">
+                <td>{{item.cedula}}</td>
+                <td>{{item.nombres}}</td>
+                <td>{{item.apellidos}}</td>
+                <td>{{item.telefono}}</td>
+                <td>{{item.direccion}}</td>
+                <td>{{item.nombreAcopi}}</td>
+                <td>{{item.tipoProducto1}}</td>
+                <td>{{item.nombreRol}}</td>
+                <td *ngIf="mostrarColumna">
+                  <a (click)="eliminarPersona(item.idPersona)" class="me-2"  style="color:rgb(255, 255, 255)"> <img
+                      src="../../../assets/img/borrar.png" alt="Editar"></a>
+                  <a href="/persona/editar/{{item.idPersona}}" style="color:rgb(255, 254, 254)"> <img
+                      src="../../../assets/img/lapiz.png" alt="Editar"></a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Crear Persona</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body ">
+            <form [formGroup]="addPersonaForm" (Submit)="crearPersona()" id="idCrearPersona">
+              <div class="row">
+                <div class="col-6">
+                  <div class="row">
+                    <div>
+                      <label for="input1">Nombre</label>
+                      <input type="text" class="form-control" formControlName="nombres">
+                    </div>
+                    <div>
+                      <label for="input2">Apellido</label>
+                      <input type="text" class="form-control" formControlName="apellidos">
+                    </div>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="d-flex justify-content-center">
+                    <img src="https://cdn-icons-png.flaticon.com/512/283/283234.png" width="40%" height="40%" class="">
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <label for="input1">Dirección</label>
+                  <input type="text" class="form-control" formControlName="direccion">
+                </div>
+                <div class="col">
+                  <label for="input2">Telefono</label>
+                  <input type="text" class="form-control" formControlName="telefono">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-3">
+                  <label for="input1">Cedula</label>
+                  <input type="text" class="form-control" formControlName="cedula">
+                </div>
+                <div class="col-md-3">
+                  <label for="input1">Rol</label>
+                  <select class="form-select" formControlName="idRol">
+                    <option value="3">Productor</option>
+                    <option value="2">Empleado</option>
+                  </select>
+                </div>
+                <div class="col-md-3">
+                  <label for="input2">Tipo de producto</label>
+                  <select class="form-select" formControlName="idTipoProducto">
+                    <option value="1">Leche</option>
+                  </select>
+                </div>
+                <div class="col-md-3">
+                  <label for="input2">Acopio</label>
+                  <select class="form-select" formControlName="idAcopio">
+                    <option value="1">AcopiMilk</option>
+                  </select>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            <button class="btn btn-primary boton-comun" form="idCrearPersona" type="submit" (click)="crearPersona()"
+              data-bs-dismiss="modal">Crear Persona</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

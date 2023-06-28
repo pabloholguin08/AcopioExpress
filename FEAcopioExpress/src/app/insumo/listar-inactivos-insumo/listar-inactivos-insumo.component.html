@@ -1,0 +1,53 @@
+<div class="wrapper">
+  <app-menu-lateral></app-menu-lateral>
+  <!-- Page Content  -->
+  <div id="content">
+    <app-barra-superior></app-barra-superior>
+    <div class="container">
+      <div class="row ">
+        <div class="row">
+          <div class="col-8 d-flex justify-content-end">
+            <h2>Listado de insumos inactivos</h2>
+          </div>
+          <div class="col-4 d-flex justify-content-end">
+            <a class="btn btn-lg btn-primary menu-text btn-comun boton-comun" href="/insumo">Listar Insumos</a>
+          </div>
+        </div>
+        <br>
+        <div class="row mt-5">
+          <div class="col-12">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">Insumo</th>
+                  <th scope="col">Descripcion</th>
+                  <th scope="col">Valor Unitario Venta</th>
+                  <th scope="col">Stock</th>
+                  <th scope="col">Valor Total de Insumos Venta</th>
+                  <th scope="col">Valor Unitario Compra</th>
+                  <th scope="col">Valor Total Compra</th>
+                  <th scope="col">Ganancia Unitaria</th>
+                  <th scope="col">Acciones</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of listaInsumo">
+                  <td>{{item.nombreInsumo}}</td>
+                  <td>{{item.descripcion}}</td>
+                  <td>{{item.valorUnitarioVenta}}</td>
+                  <td>{{item.stock}}</td>
+                  <td>{{item.valorTotalInsumosV}}</td>
+                  <td>{{item.valorUnitarioCompra}}</td>
+                  <td>{{item.valorTotalUcompra}}</td>
+                  <td>{{item.gananciaUnitaria}}</td>
+                  <td>
+                    <a href="/insumo/recuperar/{{item.idInsumo}}" style="color:rgb(255, 255, 255)"
+                      class="btn btn-warning mx-2"> Recuperar</a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>

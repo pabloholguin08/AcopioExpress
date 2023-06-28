@@ -1,0 +1,100 @@
+<div class="wrapper">
+  <app-menu-lateral></app-menu-lateral>
+  <!-- Page Content  -->
+  <div id="content">
+    <app-barra-superior></app-barra-superior>
+    <div class="container">
+      <div class="row ">
+        <div class="col-12 d-flex justify-content-center mb-4">
+          <h2>Historial de Insumos Vendidos</h2>
+        </div>
+        <div class="col-6 d-flex justify-content-start">
+          <div class="row me-3">
+            <div class="col-12">
+              <label for="fechaInicio">Fecha Inicio</label>
+              <input type="date" class="form-control" id="fechaInicio" [(ngModel)]="fechaInicio">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12">
+              <label for="fechaFin">Fecha Fin</label>
+              <input type="date" class="form-control" id="fechaFin" [(ngModel)]="fechaFin">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12 mt-3">
+              <button type="button" class="btn btn-lg btn-primary menu-text btn-init-session mx-3 boton-comun"
+                (click)="historialVenta()">Buscar</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 d-flex justify-content-end">
+          <div class="row">
+            <div class="col-12 mt-3">
+              <button type="button" class="btn btn-lg btn-danger menu-text btn-init-session mx-3" (click)="onImprimir()"
+                style="background-color: #31C941; border: #31C941;">Exportar a PDF</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+    <div class="container">
+      <div class="row mt-5">
+        <div class="col-12">
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Nombres</th>
+                <th scope="col">Tipo de Pago</th>
+                <th scope="col">Observacion</th>
+                <th scope="col">Fecha Registro</th>
+                <th *ngIf="mostrarColumna" scope="col">Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of historial">
+                <td>{{item.nombres}} {{item.apellidos}}</td>
+                <td>{{item.nombreTipoProducto}}</td>
+                <td>{{item.observacion}}</td>
+                <td>{{item.fechaRegistro | date:'dd/MM/yyyy'}}</td>
+                <td *ngIf="mostrarColumna">
+                  <a class="mx-3" (click)="eliminarVenta(item.idVentaInsumo)" style="color:rgb(255, 255, 255)"> <img
+                      src="../../../assets/img/borrar.png" alt="Editar"></a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="row mt-5" style="visibility: hidden;">
+      <div class="col-12">
+        <table class="table" id="tablaReporte" #tablaReporte>
+          <thead>
+            <tr>
+              <th scope="col">Numero Documento</th>
+              <th scope="col">Tipo de Pago</th>
+              <th scope="col">Fecha Registro</th>
+              <th scope="col">Insumo</th>
+              <th scope="col">Precio</th>
+              <th scope="col">Total Venta</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of reporte">
+              <td>{{item.numeroDocumento}}</td>
+              <td>{{item.tipoPago}}</td>
+              <td>{{item.fechaRegistro}}</td>
+              <td>{{item.insumo}} x {{item.cantidad}}</td>
+              <td>{{item.precio}}</td>
+              <td>{{item.totalVenta}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>

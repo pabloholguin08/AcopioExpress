@@ -1,0 +1,13 @@
+.productos{
+    align-content: center;
+    color: #4B6CB7;
+    text-align: center;
+    width: 100%;
+    height: 500px;
+}
+
+.text-productos{
+    color: black;
+    margin-left: 15%;
+    width: 70%;;
+}

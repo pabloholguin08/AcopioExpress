@@ -1,0 +1,62 @@
+<div class="wrapper">
+  <app-menu-lateral></app-menu-lateral>
+  <!-- Page Content  -->
+  <div id="content">
+    <app-barra-superior></app-barra-superior>
+    <div class="container">
+      <div class="row text-center">
+        <h1>Editar ventas</h1>
+      </div>
+      <div *ngIf="dataLoaded">
+        <form [formGroup]="editarVentaProduccionForm" (ngSubmit)="actualizarProduccion()">
+          <div class="row ms-5">
+            <div class="col-6">
+              <div class="row">
+                <div class="col-12">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <label for="input1">Nombre Acopio</label>
+                      <select class="form-select" formControlName="idAcopio">
+                        <option value="1" [defaultSelected]="1">
+                          Acopio lacteo</option>
+                      </select>
+                    </div>
+                    <div class="col-md-6">
+                      <label for="input1">Fecha de Venta</label>
+                      <input type="date" class="form-control" formControlName="fechaVenta">
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <label for="input2">Cantidad</label>
+                      <input type="number" class="form-control" formControlName="cantidad">
+                    </div>
+                    <div class="col-md-6">
+                      <label for="input2">Precio Venta</label>
+                      <input type="number" class="form-control" formControlName="precio">
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <label for="input1">Observaciones</label>
+                  <textarea class="form-control" id="exampleFormControlTextarea1" formControlName="observaciones"
+                    maxlength="500" rows="6"></textarea>
+                </div>
+              </div>
+              <div class="row mt-3">
+                <div class="col-md-12 d-grid gap-2 "><button class="btn btn-primary boton-comun "
+                    form="idCrearVentaProduccion" type="submit" (click)="actualizarProduccion()">Editar
+                    Venta Produccion</button></div>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="d-flex justify-content-center">
+                <img src="../../../assets/img/carrito-de-supermercado.png" width="40%" height="40%" class="">
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

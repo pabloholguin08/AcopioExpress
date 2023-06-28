@@ -1,0 +1,20 @@
+.background-menu {
+  background-color: #4B6CB7;
+}
+.menu-text{
+  color: white ;
+}
+#navbarNav{
+  margin-left: 400px;
+}
+
+.btn-init-session{
+  background-color: #182848;
+  padding: 5%;
+  width:200px;
+}
+
+.logo-nav{
+  height:75px;
+  width: 75px;
+}

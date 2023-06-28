@@ -1,0 +1,49 @@
+<div class="container">
+  <h2>Agregar una Acopio</h2>
+  <div class="row ">
+      <form class="formulario"  [formGroup]="addAcopioForm" (ngSubmit)="crearAcopio()">
+          <div class="mb-3 ">
+              <label class="form-label">nombre del acopio</label>
+              <input type="text" class="form-control"formControlName="nombreAcopi" >
+              <span [hidden]="addAcopioForm.pristine">
+                  <div *ngIf="addAcopioForm.controls['nombreAcopi'].errors && addAcopioForm.controls['nombreAcopi'].hasError('required')"
+                      class="alert alert-danger mt-1" role="alert">
+                      Ingrese el nombre del acopio
+                  </div>
+              </span>
+          </div>
+          <div class="mb-3 ">
+              <label class="form-label">nombre del acopio</label>
+              <input type="text" class="form-control"formControlName="nombreAcopi" >
+              <span [hidden]="addAcopioForm.pristine">
+                  <div *ngIf="addAcopioForm.controls['nombreAcopi'].errors && addAcopioForm.controls['nombreAcopi'].hasError('required')"
+                      class="alert alert-danger mt-1" role="alert">
+                      Ingrese el nombre del acopio
+                  </div>
+              </span>
+          </div>
+          <div class="mb-3">
+              <label  class="form-label">ubicacion </label>
+              <input type="text" class="form-control" formControlName="ubicacion">
+              <span [hidden]="addAcopioForm.pristine">
+                  <div *ngIf="addAcopioForm.controls['ubicacion'].errors && addAcopioForm.controls['ubicacion'].hasError('required')"
+                      class="alert alert-danger mt-1" role="alert">
+                      Ingrese la ubicacion del acopio
+                  </div>
+              </span>
+          </div>
+          <div class="mb-3">
+              <label class="form-label">cantidad de Empleados</label>
+              <input type="number" class="form-control" formControlName="cantidadEmpleados">
+              <span [hidden]="addAcopioForm.pristine">
+                  <div *ngIf="addAcopioForm.controls['cantidadEmpleados'].errors && addAcopioForm.controls['cantidadEmpleados'].hasError('required')"
+                      class="alert alert-danger mt-1" role="alert">
+                      Ingrese la cantidad de Empleados
+                  </div>
+              </span>
+          </div>
+
+          <button [disabled]="addAcopioForm.invalid"  type="submit" class="btn btn-primary">Enviar</button>
+      </form>
+  </div>
+</div>

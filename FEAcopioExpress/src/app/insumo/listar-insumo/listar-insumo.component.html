@@ -1,0 +1,137 @@
+<div class="wrapper">
+  <app-menu-lateral></app-menu-lateral>
+  <!-- Page Content  -->
+  <div id="content">
+    <app-barra-superior></app-barra-superior>
+    <br>
+    <div class="container">
+      <div class="row mx-5">
+        <div class="col-4 d-flex justify-content-start">
+          <h2>Inventario de Insumos</h2>
+        </div>
+        <div class="col-8 d-flex justify-content-end">
+          <button type="button" (click)="onImprimir()"
+            class="btn btn-lg btn-primary menu-text btn-init-session boton-comun" style="background-color: #31C941; border: #31C941;">Exportar a PDF</button>
+          <button type="button" class="btn btn-lg btn-primary menu-text btn-init-session mx-3 boton-comun"
+            data-bs-target="#exampleModal" data-bs-toggle="modal">Nuevo Insumo</button>
+          <a class="btn btn-lg btn-primary menu-text btn-init-session boton-comun"
+            href="/insumo/inactivosInsumos">Listar
+            Inactivos</a>
+        </div>
+      </div>
+      <br>
+      <div class="row mx-5">
+        <div class="col-12 border d-flex justify-content-center align-self-center">
+          <ngx-charts-advanced-pie-chart [view]="view" scheme="natural" [results]="single" [gradient]="gradient"
+            (select)="onSelect($event)" (activate)="onActivate($event)" (deactivate)="onDeactivate($event)">
+          </ngx-charts-advanced-pie-chart>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="row mt-5">
+          <div class="col-12">
+            <table class="table" #tablaInsumos>
+              <thead>
+                <tr>
+                  <th scope="col">Insumo</th>
+                  <th scope="col" style="width: 8%;">Descripcion</th>
+                  <th scope="col">Valor Venta p/u</th>
+                  <th scope="col">Stock</th>
+                  <th scope="col">Valor Total de Venta</th>
+                  <th scope="col">Valor Compra p/u</th>
+                  <th scope="col">Valor Total Compra</th>
+                  <th scope="col">Ganancia Unitaria</th>
+                  <th *ngIf="mostrarColumna" scope="col" style="width: 10%;">Acciones</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of listaInsumo">
+                  <td>{{item.nombreInsumo}}</td>
+                  <td>{{item.descripcion}}</td>
+                  <td>{{item.valorUnitarioVenta | currency: ''}}</td>
+                  <td>{{item.stock}}</td>
+                  <td>{{item.valorTotalInsumosV | currency: ''}}</td>
+                  <td>{{item.valorUnitarioCompra | currency: ''}}</td>
+                  <td>{{item.valorTotalUcompra | currency: ''}}</td>
+                  <td>{{item.gananciaUnitaria | currency: ''}}</td>
+
+                  <td *ngIf="mostrarColumna">
+                    <a class="mx-3" (click)="eliminarInsumo(item.idInsumo)"  style="color:rgb(255, 255, 255)"> <img
+                        src="../../../assets/img/borrar.png" alt="Editar"></a>
+                    <a href="/insumo/editar/{{item.idInsumo}}" style="color:rgb(255, 254, 254)"> <img
+                        src="../../../assets/img/lapiz.png" alt="Editar"></a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+
+
+      <!-- Modal -->
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Crear Insumo</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body ">
+              <form [formGroup]="addInsumoForm" (Submit)="crearInsumo()" id="idCrearInsumo">
+
+                <div class="row">
+                  <div class="col-6">
+                    <div class="row">
+                      <div>
+                        <label for="input1">Nombre Insumo</label>
+                        <input type="text" class="form-control" formControlName="nombreInsumo">
+                      </div>
+                      <div>
+                        <label for="input2">Descripcion</label>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" formControlName="descripcion"
+                          maxlength="50" rows="4"></textarea>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <div class="d-flex justify-content-center">
+                      <img src="../../../assets/img/suministro.png" width="40%" height="40%" class="">
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+
+
+                </div>
+
+                <div class="row">
+                  <div class="col-md-5">
+                    <label for="input1">Valor Unitario Venta</label>
+                    <input type="number" class="form-control" formControlName="valorUnitarioVenta">
+                  </div>
+                  <div class="col-md-2">
+                    <label for="input2">Stock</label>
+                    <input type="text" class="form-control" formControlName="stock">
+                  </div>
+                  <div class="col-md-5">
+                    <label for="input1">Valor Unitario Compra</label>
+                    <input type="number" class="form-control" formControlName="valorUnitarioCompra">
+                  </div>
+                </div>
+
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+              <button class="btn btn-primary boton-comun" form="idCrearInsumo" type="submit" (click)="crearInsumo()"
+                data-bs-dismiss="modal">Crear Insumo</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

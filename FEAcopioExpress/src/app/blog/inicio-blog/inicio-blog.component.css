@@ -1,0 +1,19 @@
+
+body{
+  top:100px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  position: absolute;
+  background-image: url(../../../assets/img/fondo-inicio.png);
+  background-size:cover;
+  background-attachment: fixed;
+}
+
+
+.fondo-inicio h1{
+    color: white;
+    text-align: center;
+    padding-top: 15%;
+    font-size: 60px;
+}
