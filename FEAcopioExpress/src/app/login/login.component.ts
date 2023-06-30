@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoginService } from '../Services/login.service';
-import { ToastrService } from 'ngx-toastr';
 import { AlertaService } from '../Services/alerta.service';
 
 @Component({
@@ -51,6 +50,8 @@ export class LoginComponent {
         console.log(this.listaUsuario)
         this.validarObtener()
         this.router.navigate(['/home'])
+      }else{
+        this.ShowError()
       }
     },err=>{
       this.ShowError()
